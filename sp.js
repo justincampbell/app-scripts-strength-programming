@@ -50,7 +50,8 @@ function SP_HEAVY_BACKDOWNS(weight, reps, backdown_sets, backdown_percentage, ro
 
 function SP_FORMAT(sets) {
   return sets.map(function(set) {
-    var [weight, reps] = set;
+    var weight = set[0];
+    var reps = set[1];
 
     return weight + " x " + reps;
   });
