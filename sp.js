@@ -26,12 +26,28 @@ function SP_SET_PERCENTS_AND_REPS(weight, set_percents_and_reps, rounding) {
   return SP_FORMAT(result);
 }
 
-function SP_531(weight, week, rounding) {
+function SP_531(weight, week, rounding, fsl) {
   var weeks = {
     1: [[0.65, 5], [0.75, 5], [0.85, "5+"]],
     2: [[0.70, 3], [0.80, 3], [0.90, "3+"]],
     3: [[0.75, 5], [0.85, 3], [0.95, "1+"]]
   };
+
+  var set_percents_and_reps = weeks[week];
+
+  if (fsl == "+") {
+    set_percents_and_reps.push([
+      set_percents_and_reps[0][0],
+      set_percents_and_reps[0][1] + "+"]
+    );
+  } else if (fsl != undefined) {
+    for(i = 0; i < 3; i++) {
+      set_percents_and_reps.push([
+        set_percents_and_reps[0][0],
+        fsl
+      ]);
+    }
+  }
 
   return SP_SET_PERCENTS_AND_REPS(weight, weeks[week], rounding);
 }

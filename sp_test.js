@@ -2,6 +2,7 @@ const assert = require('assert');
 const fs = require('fs');
 
 eval(fs.readFileSync('sp.js')+';')
+
 // SP_SETS_ACROSS
 assert.deepEqual(
   SP_SETS_ACROSS(100, 5),
@@ -75,6 +76,18 @@ assert.deepEqual(
 assert.deepEqual(
   SP_531(123, 1, 2.5),
   ["80 x 5", "92.5 x 5", "105 x 5+"]
+);
+assert.deepEqual(
+  SP_531(100, 1, 2.5, "5-8"),
+  ["65 x 5", "75 x 5", "85 x 5+", "65 x 5-8", "65 x 5-8", "65 x 5-8"]
+);
+assert.deepEqual(
+  SP_531(100, 1, 2.5, "+"),
+  ["65 x 5", "75 x 5", "85 x 5+", "65 x 5+"]
+);
+assert.deepEqual(
+  SP_531(100, 2, 2.5, "+"),
+  ["70 x 3", "80 x 3", "90 x 3+", "70 x 3+"]
 );
 
 // SP_FORMAT
