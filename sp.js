@@ -34,19 +34,22 @@ function SP_531(weight, week, rounding, fsl) {
   var weeks = {
     1: [[0.65, 5], [0.75, 5], [0.85, "5+"]],
     2: [[0.7, 3], [0.8, 3], [0.9, "3+"]],
-    3: [[0.75, 5], [0.85, 3], [0.95, "1+"]]
+    3: [[0.75, 5], [0.85, 3], [0.95, "1+"]],
+    4: [[0.4, 5], [0.5, 5], [0.6, 5]]
   };
 
   var set_percents_and_reps = weeks[week];
 
-  if (fsl == "+") {
-    set_percents_and_reps.push([
-      set_percents_and_reps[0][0],
-      set_percents_and_reps[0][1] + "+"
-    ]);
-  } else if (fsl != undefined) {
-    for (i = 0; i < 3; i++) {
-      set_percents_and_reps.push([set_percents_and_reps[0][0], fsl]);
+  if (week <= 3) {
+    if (fsl == "+") {
+      set_percents_and_reps.push([
+        set_percents_and_reps[0][0],
+        set_percents_and_reps[0][1] + "+"
+      ]);
+    } else if (fsl != undefined) {
+      for (i = 0; i < 3; i++) {
+        set_percents_and_reps.push([set_percents_and_reps[0][0], fsl]);
+      }
     }
   }
 

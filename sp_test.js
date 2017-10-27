@@ -50,6 +50,7 @@ assert.deepEqual(SP_HEAVY_BACKDOWNS(123, 10, 2, 0.9, 2.5), [
 assert.deepEqual(SP_531(100, 1), ["65 x 5", "75 x 5", "85 x 5+"]);
 assert.deepEqual(SP_531(100, 2), ["70 x 3", "80 x 3", "90 x 3+"]);
 assert.deepEqual(SP_531(100, 3), ["75 x 5", "85 x 3", "95 x 1+"]);
+assert.deepEqual(SP_531(100, 4), ["40 x 5", "50 x 5", "60 x 5"]);
 assert.deepEqual(SP_531(123, 1, 2.5), ["80 x 5", "92.5 x 5", "105 x 5+"]);
 assert.deepEqual(SP_531(100, 1, 2.5, "5-8"), [
   "65 x 5",
@@ -71,6 +72,7 @@ assert.deepEqual(SP_531(100, 2, 2.5, "+"), [
   "90 x 3+",
   "70 x 3+"
 ]);
+assert.deepEqual(SP_531(100, 4, 2.5, "+"), ["40 x 5", "50 x 5", "60 x 5"]);
 
 // SP_FORMAT
 assert.deepEqual(SP_FORMAT([[123, 5]]), ["123 x 5"]);
